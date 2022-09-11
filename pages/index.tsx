@@ -1,6 +1,7 @@
 import type { NextPage } from "next"
 
 import Image from "next/image"
+// @ts-expect-error - no types
 import * as Add2Calendar from "add2calendar"
 
 import RSVPForm from "../components/RSVPForm"
