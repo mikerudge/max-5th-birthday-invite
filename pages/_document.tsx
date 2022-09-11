@@ -22,7 +22,10 @@ export default function Document() {
 					property='og:description'
 					content='Max is turning 5 so we are having a party on 9th October. Come join us. '
 				/>
-				<meta property='og:image' content='public/meta.png' />
+				<meta
+					property='og:image'
+					content='https://max-turns-5.netlify.com/meta.png'
+				/>
 
 				<meta property='twitter:card' content='summary_large_image' />
 				<meta
@@ -37,7 +40,10 @@ export default function Document() {
 					property='twitter:description'
 					content='Max is turning 5 so we are having a party on 9th October. Come join us. '
 				/>
-				<meta property='twitter:image' content='public/meta.png' />
+				<meta
+					property='twitter:image'
+					content='https://max-turns-5.netlify.com/meta.png'
+				/>
 			</Head>
 			<body>
 				<Main />
