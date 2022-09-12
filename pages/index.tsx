@@ -9,11 +9,10 @@ import RSVPForm from "../components/RSVPForm"
 
 const openMaps = () => {
 	if (
-		navigator &&
 		/* if we're on iOS, open in Apple Maps */
-		(navigator.platform.indexOf("iPhone") != -1 ||
-			navigator.platform.indexOf("iPad") != -1 ||
-			navigator.platform.indexOf("iPod") != -1)
+		navigator.platform.indexOf("iPhone") != -1 ||
+		navigator.platform.indexOf("iPad") != -1 ||
+		navigator.platform.indexOf("iPod") != -1
 	) {
 		window.open(
 			`https://maps.apple.com/?address=Unit%203,%20Ryan%20Buildings,%20Cardiff%20Road,%20Taffs%20Well,%20CF15%207SR,%20Cymru&auid=13104448965366231939&ll=51.558023,-3.270358&lsp=9902&q=All%20Stars%20Gymnastics%20Club&_ext=CjMKBQgEEOEBCgQIBRADCgUIBhCgAwoECAoQAAoECFIQAwoECFUQDgoECFkQAQoFCKQBEAESJilVuru/3MZJQDFM9DxChjgKwDnTj+EbA8hJQEEYVY3l7hoKwFAE`
@@ -24,12 +23,12 @@ const openMaps = () => {
 }
 
 const addEventToCalendar = () => {
-	var singleEventArgs = {
+	const singleEventArgs = {
 		title: "Max's 5th Birthday Party",
 		start: "October 9, 2022 13:30",
 		end: "October 9, 2022 15:30",
 		location:
-			"All-Star Gymnastics Club, Unit 3, Ryan Buildings, Cardiff Road, Taffs Well, CF15 7SR",
+			"All-Star Gymnastics Club, Unit 29/30, JR Business Centre Main Avenue, Treforest Ind Est, CF37 5ST",
 		description:
 			"Max is turning 5! Come and celebrate with us at All Stars Gymnastics Club",
 		isAllDay: false,
@@ -152,11 +151,11 @@ const Home: NextPage = () => {
 								d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z'
 							/>
 						</svg>
-						Unit 3, Ryan Buildings, CF15 7SR
+						Unit 29/30, JR Business Centre, Treforest Ind Est, CF37 5ST
 					</a>
 				</div>
 
-				<div className='rounded bg-blue-100 p-8 shadow-xl'>
+				<div className='rounded bg-blue-50 p-8 shadow-xl'>
 					<Image
 						width={189 * 2}
 						height={504 / 1.2}
