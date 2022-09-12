@@ -7,19 +7,15 @@ import * as Add2Calendar from "add2calendar"
 import RSVPForm from "../components/RSVPForm"
 // import RSVPForm from "../components/RSVPForm"
 
+// images
+import max2 from "../public/max-2.jpeg"
+import max3 from "../public/max-3.jpeg"
+import max4 from "../public/max-4.jpg"
+import party from "../public/party.svg"
+import { useState } from "react"
+
 const openMaps = () => {
-	if (
-		/* if we're on iOS, open in Apple Maps */
-		navigator.platform.indexOf("iPhone") != -1 ||
-		navigator.platform.indexOf("iPad") != -1 ||
-		navigator.platform.indexOf("iPod") != -1
-	) {
-		window.open(
-			`https://maps.apple.com/?address=Unit%203,%20Ryan%20Buildings,%20Cardiff%20Road,%20Taffs%20Well,%20CF15%207SR,%20Cymru&auid=13104448965366231939&ll=51.558023,-3.270358&lsp=9902&q=All%20Stars%20Gymnastics%20Club&_ext=CjMKBQgEEOEBCgQIBRADCgUIBhCgAwoECAoQAAoECFIQAwoECFUQDgoECFkQAQoFCKQBEAESJilVuru/3MZJQDFM9DxChjgKwDnTj+EbA8hJQEEYVY3l7hoKwFAE`
-		)
-	} else {
-		window.open("https://g.page/Allstarsgym1?share")
-	}
+	window.open("https://g.page/Allstarsgym1?share")
 }
 
 const addEventToCalendar = () => {
@@ -28,7 +24,7 @@ const addEventToCalendar = () => {
 		start: "October 9, 2022 13:30",
 		end: "October 9, 2022 15:30",
 		location:
-			"All-Star Gymnastics Club, Unit 29/30, JR Business Centre Main Avenue, Treforest Ind Est, CF37 5ST",
+			"All-Star Gymnastics Club Unit 29/30 JR Business Centre Main Avenue Treforest Ind Est CF37 5ST",
 		description:
 			"Max is turning 5! Come and celebrate with us at All Stars Gymnastics Club",
 		isAllDay: false,
@@ -40,23 +36,31 @@ const addEventToCalendar = () => {
 }
 
 const Home: NextPage = () => {
+	const [copied, setCopied] = useState<boolean>(false)
+
+	const copyAddressToClipboard = () => {
+		navigator.clipboard.writeText(
+			"All-Star Gymnastics Club Unit 29/30 JR Business Centre Main Avenue Treforest Ind Est CF37 5ST"
+		)
+		setCopied(true)
+
+		setTimeout(() => {
+			setCopied(false)
+		}, 2000)
+	}
+
 	return (
 		<main className='flex min-h-screen items-center justify-center overflow-hidden p-8'>
 			<div className='prose prose-xl flex flex-col items-center text-center text-blue-100'>
 				<div className='my-8 flex justify-between'>
 					<div className='mt-8 h-28 w-28 rotate-6 overflow-hidden rounded-2xl shadow animate-rotateInDownLeft'>
-						<Image
-							width={378}
-							height={504}
-							src='/max-3.jpeg'
-							alt='max at the zoo'
-						/>
+						<Image width={378} height={504} src={max3} alt='max at the zoo' />
 					</div>
 					<div className='z-10 mb-8 h-28 w-28 -rotate-2 animate-slideInDown overflow-hidden rounded-2xl shadow-xl'>
 						<Image
 							width={378}
 							height={504}
-							src='/max-2.jpeg'
+							src={max2}
 							alt='max in a super man outfit'
 						/>
 					</div>
@@ -64,7 +68,7 @@ const Home: NextPage = () => {
 						<Image
 							width={378}
 							height={504}
-							src='/max-4.jpg'
+							src={max4}
 							alt='max drinking coffee'
 						/>
 					</div>
@@ -151,7 +155,7 @@ const Home: NextPage = () => {
 								d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z'
 							/>
 						</svg>
-						Unit 29/30, JR Business Centre, Treforest Ind Est, CF37 5ST
+						Unit 29/30, Jr Business Centre, Treforest
 					</a>
 				</div>
 
@@ -159,12 +163,12 @@ const Home: NextPage = () => {
 					<Image
 						width={189 * 2}
 						height={504 / 1.2}
-						src='/party.svg'
+						src={party}
 						alt='max at a party'
 						className='my-0'
 					/>
-					<h3 className='font-bold text-blue-900'>You&apos;re Invited!</h3>
-					<p className='text-blue-900'>
+					<h3 className='font-bold text-blue-500'>You&apos;re Invited!</h3>
+					<p className='text-left text-blue-900'>
 						We are going to bounce, balance and stretch through Max&apos;s 5th
 						birthday party @ All-Star Gymnastics Club, Treforest. We will be
 						there from 1:30 pm until 3:30 pm and we would love for you to join
@@ -173,11 +177,30 @@ const Home: NextPage = () => {
 						<br />
 						There will be party food and drinks along with free play, games, and
 						activities.
+						<br />
+						<br />
 					</p>
+					<h4 className='text-left text-blue-500'>Finding your way </h4>
+					<p className='text-left text-blue-900'>
+						All-Star Gymnastics Club is located at Unit 29/30, Jr Business
+						Centre, Main Avenue, Treforest Ind Est, CF37 5ST.{" "}
+						<i>(Turn left at the pottery pub)</i>
+						<br />
+						<br />
+						There is plenty of parking available.
+					</p>
+					<button
+						className='rounded bg-blue-700 p-2 text-sm text-blue-200'
+						onClick={copyAddressToClipboard}
+					>
+						{copied ? "Copied!" : "Copy address to clipboard"}
+					</button>
 				</div>
 
 				<div>
-					<h2 id='rsvp'>RSVP</h2>
+					<h2 className='text-blue-50' id='rsvp'>
+						RSVP
+					</h2>
 					<RSVPForm />
 				</div>
 			</div>
