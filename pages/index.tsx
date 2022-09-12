@@ -168,7 +168,7 @@ const Home: NextPage = () => {
 						className='my-0'
 					/>
 					<h3 className='font-bold text-blue-500'>You&apos;re Invited!</h3>
-					<p className='text-left text-blue-900'>
+					<p className='text-blue-900 lg:text-left'>
 						We are going to bounce, balance and stretch through Max&apos;s 5th
 						birthday party @ All-Star Gymnastics Club, Treforest. We will be
 						there from 1:30 pm until 3:30 pm and we would love for you to join
@@ -180,8 +180,8 @@ const Home: NextPage = () => {
 						<br />
 						<br />
 					</p>
-					<h4 className='text-left text-blue-500'>Finding your way </h4>
-					<p className='text-left text-blue-900'>
+					<h4 className='text-blue-500 lg:text-left'>Finding your way </h4>
+					<p className='text-blue-900 lg:text-left'>
 						All-Star Gymnastics Club is located at Unit 29/30, Jr Business
 						Centre, Main Avenue, Treforest Ind Est, CF37 5ST.{" "}
 						<i>(Turn left at the pottery pub)</i>
@@ -190,7 +190,7 @@ const Home: NextPage = () => {
 						There is plenty of parking available.
 					</p>
 					<button
-						className='rounded bg-blue-700 p-2 text-sm text-blue-200'
+						className='rounded bg-blue-700 p-2 text-sm text-blue-50'
 						onClick={copyAddressToClipboard}
 					>
 						{copied ? "Copied!" : "Copy address to clipboard"}
